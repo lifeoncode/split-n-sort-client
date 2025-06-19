@@ -15,7 +15,6 @@ export const httpRequest = async <ResponseType>({
   setTimeout(() => controller.abort(), timeout);
 
   const response = await fetch(url, { method, headers, body, signal: controller.signal });
-  console.log(response);
   if (!response.ok) {
     const error = await response.text();
     throw new Error(error);

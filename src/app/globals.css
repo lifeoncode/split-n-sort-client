@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "roboto", sans-serif;
+}
+
+.notification-bar {
+  width: 100%;
+  animation: notificationBar 10s linear forwards;
+}
+@keyframes notificationBar {
+  to {
+    width: 0%;
+  }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #4242ec 50%, transparent 50%);
+  animation: spinner 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+.loading-spinner div {
+  background-color: #fafafa;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .loading-spinner div {
+    background-color: #1d1d1f;
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

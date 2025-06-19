@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLinkM } from "react-icons/ri";
 import { twMerge } from "tailwind-merge";
@@ -17,9 +20,13 @@ const InputField = ({ variant, value, onValueChange, className }: InputFieldProp
   };
 
   return (
-    <div className={twMerge("bg-[#f1f1f1] p-[2px] rounded-lg mb-4", className)}>
-      <div className="bg-white p-1 rounded-md flex items-center justify-between">
-        <div className="p-2 border-r mr-2 border-black/20">
+    <motion.div
+      initial={{ opacity: 0, y: "10px" }}
+      animate={{ opacity: 1, y: 0 }}
+      className={twMerge("bg-black/5 dark:bg-white/10 p-1 rounded-lg mb-4", className)}
+    >
+      <div className="bg-white dark:bg-[#1f1f1f] p-1 rounded-md flex items-center justify-between">
+        <div className="p-2 border-r mr-2 border-black/20 dark:border-white/20">
           {variant === "email" && <HiOutlineMail className="text-xl opacity-70" />}
           {variant === "text" && <RiLinkM className="text-xl opacity-70" />}
         </div>
@@ -32,7 +39,7 @@ const InputField = ({ variant, value, onValueChange, className }: InputFieldProp
           className="block w-full outline-none rounded-md p-2 bg-[transparent]"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
